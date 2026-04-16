@@ -1,22 +1,77 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("Organize ");
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <main className="flex-1">
         <section className="container mx-auto px-4 py-32">
-          <div className="mx-auto max-w-4xl text-center" >
-            <h1 className="text-6xl font-bold text-black mb-6">A better way to track your Job  application.</h1>
-            <p className="text-muted-foreground mb-10 text-xl"> Capture, organize, and manage your job search in one place. </p>
-            <div className="flex flex-col items-center gap-4" >
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-6xl font-bold text-black mb-6">
+              A better way to track your Job application.
+            </h1>
+            <p className="text-muted-foreground mb-10 text-xl">
+              {" "}
+              Capture, organize and manage your job search in one place.{" "}
+            </p>
+            <div className="flex flex-col items-center gap-4">
               <Link href="/SignUp">
-              <Button size="lg" className="px-8 text-lg font-medium h-12" >Start for free <ArrowRight className="ml-2" /></Button>
+                <Button size="lg" className="px-8 text-lg font-medium h-12">
+                  Start for free <ArrowRight className="ml-2" />
+                </Button>
               </Link>
-              <p className="text-sm text-muted-foreground " >Free forever. No credit card required.</p>
+              <p className="text-sm text-muted-foreground ">
+                Free forever. No credit card required.
+              </p>
             </div>
-            
+          </div>
+        </section>
+
+        {/* Hero image section with tabs */}
+
+        <section className="border-t bg-white py-16">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-6xl">
+
+              {/* Tabs */}
+              <div className="flex gap-2 justify-center mb-8">
+              <Button onClick={() => setActiveTab("Organize")} >Organize Application</Button>
+              <Button onClick={() => setActiveTab("Get Hired")}>Get Hired</Button>
+              <Button onClick={() => setActiveTab("Manage Board")}>Manage Board</Button>
+            </div>
+            <div className="relative mx-auto max-w-5xl overflow-hidden rounded-lg border-gray-200 shadow-xl">
+              {activeTab === "Organize" && (
+                <Image
+                src="/hero1.png"
+                alt="Organize "
+                width={1200}
+                height={800}
+              />)}
+
+                {activeTab === "Get Hired" && (
+              <Image
+                src="/hero2.png"
+                alt="Get Hired"
+                width={1200}
+                height={800}
+              />
+              )}
+
+              {activeTab === "Manage Board" && (
+              <Image
+                src="/hero3.png"
+                alt="Manage Board"
+                width={1200}
+                height={800}
+              />)}
+              </div>
+            </div>
           </div>
         </section>
       </main>
