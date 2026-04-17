@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function SectionTab() {
 
     
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("Organize");
 
     return (
  
