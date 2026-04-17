@@ -74,8 +74,8 @@ export default function SignUp() {
             </Button>
             <p className="text-center text-sm text-gray-600">
               Already have an account?{" "}
-              <Link href="/sign-in" className="">
-                Sign In
+              <Link href="/Login" className="">
+                Login
               </Link>
             </p>
           </CardFooter>
